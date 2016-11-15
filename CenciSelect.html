@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层次选择器</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        //后代选择器 $("M N") “M元素”和“N元素”之间用空格隔开，表示选中M元素内部后代N元素（所有N元素）。
+        $(function () {
+            //后代选择器 $("M N") “M元素”和“N元素”之间用空格隔开，表示选中M元素内部后代N元素（所有N元素）。
+            $("#first p").css("color","red");
+            //子代选择器，$("M>N") 就是选中元素内部的某一个子元素。子代选择器跟后代选择器很相似，但是却有着明显的区别：
+            //（1）后代选择器，选取的是元素内部所有的元素（包括子元素）；
+            //（2）子代选择器，选取的是元素内部某一个子元素（只限子元素）；
+            $("#first>p").css("color","blue");
+            //兄弟选择器 $("M～N") “M元素”和“N元素”之间使用“~”选择符，表示选中M元素后面的所有某一类兄弟元素N。
+            $("#second~p").css("color","purple");
+            //相邻选择器，$("M+N")就是选中元素后面（不包括前面）的某一个“相邻”的兄弟元素。相邻选择器跟兄弟选择器也非常相似，不过也有明显的区别：
+            //（1）兄弟选择器选取元素后面“所有”的某一类元素；
+            //（2）相邻选择器选取元素后面“相邻”的某一个元素；
+            $("#second+p").css("color","black");
+
+            //实现页面下方常见的小例子
+            $("span+span").css({"border-left":"1px solid red","padding-left":"10px"})
+        })
+    </script>
+</head>
+<body>
+<div id="first">
+    <p>lvye的子元素</p>
+    <p>lvye的子元素</p>
+    <div id="second">
+        <p>lvye子元素的子元素</p>
+        <p>lvye子元素的子元素</p>
+    </div>
+    <p>lvye的子元素</p>
+    <p>lvye的子元素</p>
+</div>
+<div id="block">
+    <span>关于我们</span>
+    <span>联系我们</span>
+    <span>版权说明</span>
+    <span>免责说明</span>
+    <span>广告服务</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素伪类选择器</title>
+    <style type="text/css">
+        *{padding:0;margin:0;}
+        ul
+        {
+            display:inline-block;
+            width:200px;
+            list-style-type:none;
+        }
+        li{height:20px;}
+
+        #list *
+        {
+            display:none;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         选择器	        说明
+         :first-child	选择父元素的第1个子元素
+         :last-child	选择父元素的最后1个子元素
+         :nth-child(n)	选择父元素下的第n个元素或奇偶元素，n的值为“整数|odd|even”
+         :only-child	选择父元素中唯一的子元素（该父元素只有一个子元素）
+         选择器	        说明
+         :first-of-type	选择同元素类型的第1个同级兄弟元素
+         :last-of-type	选择同元素类型的最后1个同级兄弟元素
+         :nth-of-type	选择同元素类型的第n个同级兄弟元素，n的值可以是“整数|odd|even”
+         :only-of-type	匹配父元素中特定类型的唯一子元素（但是父元素可以有多个子元素）
+
+         jQuery可见性伪类选择器
+         选择器	说明
+         :hidden	选取所有不可见元素
+         :visible	选取所有可见元素，与:hidden相反
+         */
+        $(function () {
+            $("ul li:first").css("background-color", "red");
+            $("ul li:nth-child(2)").css("background-color", "orange");
+            $("ul li:nth-child(3)").css("background-color", "yellow");
+            $("ul li:nth-child(4)").css("background-color", "green");
+            $("ul li:last").css("background-color", "blue");
+
+            $("#u1 li:nth-child(odd)").css("background-color","purple");
+            $("#u1 li:nth-child(even)").css("background-color","blue");
+
+            $("#btn").click(function () {
+                $("#list :hidden").css("display", "block");
+            })
+
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul><br>
+<ul id="u1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div id="list">
+    <div>（1）HTML</div>
+    <p>（2）CSS</p>
+    <span>（3）JavaScript</span>
+</div>
+<input id="btn" type="button" value="显示" />
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //标签选择器
+            $("div").css("color","red");
+            //id选择器
+            $("#name").css("color","blue");
+            //类选择器
+            $(".sp1").css("color","yellow");
+            //群组选择器
+            $("div,p,span").css("color","red");
+            //*选择器，也成为“全选选择器”，用于选择所有的元素。在CSS中，我们常常用*选择器来去除所有元素默认的padding和margin。
+            $("#list *").css("color","purple");
+
+        })
+
+
+    </script>
+</head>
+<body>
+    <div>王子岳</div>
+    <p id="name">王子岳</p>
+    <span class="sp1">王子岳</span><br>
+    <span class="sp1">王子岳</span>
+    <div>王子岳</div>
+
+    <h3>前端核心技术</h3>
+    <div id="list">
+        <div>（1）HTML</div>
+        <p>（2）CSS</p>
+        <span>（3）JavaScript</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容伪类选择器</title>
+    <style type="text/css">
+        /*去除所有元素默认外边距以及内边距*/
+        *{padding:0;margin:0;}
+        table,tr,td
+        {
+            border:1px solid silver;
+        }
+        td
+        {
+            width:60px;
+            height:60px;
+            line-height:60px;
+            text-align:center;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /***
+         * jQuery内容伪类选择器
+         选择器	            说明
+         :contains(text)	选择包含给定文本内容的元素
+         :has(selector)	    选择含有选择器所匹配元素的元素
+         :empty	            选择所有不包含子元素或者不包含文本的元素
+         :parent	        选择含有子元素或者文本的元素（跟:empty相反）
+         */
+        $(function () {
+            $("p:contains(jQuery)").css("background-color","red");
+
+            $("div:has(span)").css("background-color","red");
+
+            $("div:has(#red,#yellow)").css("background-color", "red");
+
+            $("td:empty").css("background-color", "red");
+            $("td:parent").css("background-color", "blue");
+        })
+    </script>
+</head>
+<body>
+    <div>jQuery入门教程</div>
+    <p>write less do more</p>
+    <p>从JavaScript到jQuery</p>
+    <div>欢迎来到绿叶学习网</div>
+
+    <div>
+        <p>这是一个段落</p>
+    </div>
+    <div>
+        <p>这是一个段落</p>
+        <span>这是一个span</span>
+    </div>
+
+    <div><span id="red">红色red</span></div>
+    <div><span>橙色orange</span></div>
+    <div><span id="yellow">黄色yellow</span></div>
+    <div><span>绿色green</span></div>
+    <div><span>蓝色blue</span></div>
+    <div><span>紫色purple</span></div>
+
+    <table>
+        <tr>
+            <td>2</td>
+            <td>4</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>32</td>
+            <td>64</td>
+        </tr>
+        <tr>
+            <td>128</td>
+            <td>256</td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单伪类选择器</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /***
+         * jQuery表单伪类选择器
+         选择器	    说明
+         :input	    选择所有input元素
+         :button	选择所有普通按钮，即type="button"的input元素
+         :submit	选择所有提交按钮，即type="submit"的input元素
+         :reset	    选择所有重置按钮，即type="reset"的input元素
+         :text	    选择所有单行文本框
+         :textarea	选择所有多行文本框
+         :password	选择所有密码文本框
+         :radio	    选择所有单选按钮
+         :checkbox	选择所有复选框
+         :image	    选择所有图像域
+         :hidden	选择所有隐藏域
+         :file	    选择所有文件域
+
+         jQuery表单属性伪类选择器
+         选择器	说明
+         :checked	选择所有被选中的表单元素，一般用于radio和checkbox
+         option:selected	选择所有被选中的option元素
+         :enabled	选择所有可用元素，一般用于input、select和textarea
+         :disabled	选择所有不可用元素，一般用于input、select和textarea
+         :read-only	选择所有只读元素，一般用于input和textarea
+         :focus	选择获得焦点的元素，常用于input和textarea
+         举例：
+         */
+        $(function () {
+            $("input:checkbox").attr("checked","checked");
+
+            var a = $("input:checked").val();
+            alert(a);
+
+        })
+    </script>
+</head>
+<body>
+    <p>喜欢的水果：
+        <label><input type="checkbox"/>苹果</label>
+        <label><input type="checkbox"/>西瓜</label>
+        <label><input type="checkbox"/>蜜桃</label>
+         <label><input type="checkbox"/>梨子</label>
+    </p>
+    <p>性别：
+        <label><input type="radio" name="gendar"/>男</label>
+        <label><input type="radio" name="gendar"/>女</label>
+    </p>
+    <p>喜欢的水果：
+        <label><input type="checkbox" value="苹果"/>苹果</label>
+        <label><input type="checkbox" value="西瓜" checked="checked"/>西瓜</label>
+        <label><input type="checkbox" value="蜜桃"/>蜜桃</label>
+        <label><input type="checkbox" value="梨子"/>梨子</label>
+    </p>
+
+
+</body>
+</html>

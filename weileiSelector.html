@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单伪类选择器</title>
+    <style type="text/css">
+        /*去除所有元素默认的padding和margin*/
+        *{padding:0;margin:0}
+        /*去除列表项默认符号*/
+        ul{list-style-type:none;}
+    </style>
+
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         :not(selector)	选择除了某个选择器之外的所有元素
+         :first或first()	选择某元素的第一个元素（非子元素）
+         :last或last()	选择某元素的最后一个元素（非子元素）
+         :odd	        选择某元素的索引值为奇数的元素
+         :even	        选择某元素的索引值为偶数的元素
+         :eq(index)	    选择给定索引值的元素，索引值index是一个整数，从0开始
+         :lt(index)	    选择所有小于索引值的元素，索引值index是一个整数，从0开始
+         :gt(index)	    选择所有大于索引值的元素，索引值index是一个整数，从0开始
+         :header	    选择h1~h6的标题元素
+         :animated	    选择所有正在执行动画效果的元素
+         :root	        选择页面的根元素
+         :target	    选择当前活动的目标元素（锚点）
+         */
+        $(function () {
+           $("li:not(#myLi)").css("color","red");
+            $("li:first,li:last").css("color","blue");
+            $(":header").css("color","green");
+        });
+
+f
+    </script>
+</head>
+<body>
+    <ul>
+        <li>第1个选项</li>
+        <li>第2个选项</li>
+        <li id="myLi">第3个选项</li>
+        <li>第4个选项</li>
+        <li>第5个选项</li>
+        <li>第6个选项</li>
+    </ul>
+    <h1>这是一级标题</h1>
+    <h2>这是二级标题</h2>
+    <h3>这是三级标题</h3>
+    <h4>这是四级标题</h4>
+    <h5>这是五级标题</h5>
+    <h6>这是六级标题</h6>
+</body>
+</html>
