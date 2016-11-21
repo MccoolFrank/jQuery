@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素的宽度高度width()和height()</title>
+    <style type="text/css">
+        #box1,#box2
+        {
+            display:inline-block;
+            width:100px;
+            height:60px;
+            border:1px solid gray;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         元素的宽度
+         在jQuery中，如果我们想要“获取”或者“设置”元素的宽度，共有3种方法：
+         （1）width();
+         （2）innerWidth();
+         （3）outerWidth();
+         width()、innerWidth()、outerWidth()三种方法区别
+         方法	宽度范围
+         width()	width
+         innerWidth()	width + padding
+         outerWidth()	width + padding + border
+
+         */
+        $(function () {
+            $("#btn1").click(function () {
+                var a=$("#box1").width();
+                alert(a);
+            });
+            $("#btn2").click(function () {
+                var a=$("#box2").width("120");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div><br />
+    获取第1个div的宽度：<input id="btn1" type="button" value="获取" /><br />
+    设置第2个div的宽度：<input id="btn2" type="button" value="设置" />
+
+
+</body>
+</html>

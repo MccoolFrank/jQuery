@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历节点</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /*
+             语法：$().each(callback)
+             说明：
+             参数callback是一个function函数。
+             该函数可以接受一个形参index，此形参为遍历元素的序号（从0开始）。
+             如果需要访问元素中的属性，可以借助形参index，然后配合this关键字来实现元素属性的获取和设置。
+             each()方法完整语法如下：
+             $().each(function(index){
+             ……
+             })
+             */
+            $("#btn").click(function(){
+                $("ul li").each(function (index) {
+                    var txt="这是第"+(index+1)+"个li";
+                    $(this).append(txt);
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <input id="btn" type="button" value="添加内容" />
+
+</body>
+</html>

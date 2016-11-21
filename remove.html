@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除节点</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         在jQuery中，对于删除节点，我们有3种方法：
+         （1）remove()；
+         （2）detach()；
+         （3）empty()；
+         一、remove()
+         在jQuery中，我们可以使用remove()方法将某个节点删除。
+         语法：$(A).remove()
+         */
+        $(function () {
+
+            /*
+             二、detach()
+             在jQuery中，除了remove()方法之外，我们还可以使用detach()方法来将某个元素删除。
+             语法：$(A).detach()
+             说明：
+             detach()方法和remove()方法作用相似，但是两者却有着本质上的区别。
+             remove()方法是“彻底”地删除元素。也就是说使用remove()方法，不仅元素会被删除，所绑定的事件都会被删除。
+             detach()方法是“半彻底”地删除元素，也就是说使用detach()方法，只有元素被删除，所绑定的事件并不会删除。
+             */
+            $("li").click(function () {
+                var txt=$(this).text();
+                alert(txt);
+            });
+            $("#btn").click(function () {
+                var $li=$("ul li:eq(1)").remove();
+                $("ul").append($li);
+            });
+            $("#btn1").click(function(){
+                var $li=$("ul li:eq(3)").detach();
+                $("ul").append($li);
+            });
+            /*
+             三、empty()
+             remove()和detach()都是将某个元素删除。如果我们想要“清空”某个节点，则可以用到empty()方法。
+             在jQuery中，我们可以使用empty()方法清空元素内部的所有节点。
+             语法：$(A).empty(
+             */
+            $("#btn2").click(function(){
+                $("ul li:eq(3)").empty();
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+        <li>canvas</li>
+    </ul>
+    <input type="button" id="btn" value="remove删除">
+    <input type="button" id="btn1" value="detach删除">
+    <input id="btn2" type="button" value="empty清空" />
+
+</body>
+</html>

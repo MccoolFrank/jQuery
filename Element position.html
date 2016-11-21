@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素的位置offset()和position()</title>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+        }
+        #main
+        {
+            text-align:left;
+            margin:100px auto;
+            padding:15px;
+            border:1px dashed gray;
+            display:inline-block;
+        }
+        #box1,#box2
+        {
+            display:inline-block;
+            height:100px;
+            width:100px;
+        }
+        #box1
+        {
+            background-color:Red;
+        }
+        #box2
+        {
+            background-color:Orange;
+        }
+        #father
+        {
+            position:relative;
+            width:200px;
+            height:200px;
+            background-color:orange;
+        }
+        #son
+        {
+            position:absolute;
+            top:20px;
+            left:50px;
+            width:50px;
+            height:50px;
+            background-color:red;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*offset()
+         在jQuery中，我们可以使用offset()方法用于“获取”或“设置”元素相对于“当前文档”（也就是浏览器窗口）的偏移距离。
+         语法：
+         $().offset().top;
+         $().offset().left
+         说明：
+         $().offset()返回的是一个坐标对象，该对象有2个属性：top和left。
+         $().offset().top表示获取元素相对于当前文档“顶部”的距离。
+         $().offset().left表示获取元素相对于当前文档“左部”的距离。
+         这两种方法返回的都是一个数字（不带单位）。
+
+         position()
+         在jQuery中，我们可以使用position()方法来“获取”或“设置”当前元素相对于“其被定位的祖辈元素”的偏移距离。
+         语法：
+         $().position().top
+         $().position().left
+         说明：
+         $().position()返回的是一个坐标对象，该对象有2个属性：top和left。
+         $().position().top表示元素相对于被定位的祖辈元素的顶部的垂直距离。
+         $().position().left表示元素相对于被定位的祖辈元素的左部的水平距离。
+         这两种方法返回的都是一个数字（不带单位）。
+         */
+        $(function () {
+            $("#btn").click(function () {
+                //获取box2距离顶部的距离
+                var top = $("#box2").offset().top;
+                //获取box2距离左部的距离
+                var left = $("#box2").offset().left;
+                var str = "box2与文档顶部距离是：" + top + "\n" + "box2与文档左部距离是：" + left;
+                alert(str);
+            });
+            $("#btn1").click(function () {
+                var top=$("#son").position().top;
+                var left=$("son").position().left;
+                var str = "子元素相对父元素顶部距离是：" + top + "\n" + "子元素相对父元素左部距离是：" + left;
+                alert(str);
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="box1"></div><br />
+        <div id="box2"></div><br />
+        <input id="btn" type="button" value="获取" />
+    </div>
+    <div id="father">
+        <div id="son"></div>
+    </div>
+    <input id="btn1" type="button" value="获取" />
+
+</body>
+</html>

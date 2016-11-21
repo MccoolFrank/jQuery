@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS类名操作</title>
+    <style type="text/css">
+        .myli
+        {
+            color: red;
+            background-color: #F1F1F1;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            /* 添加类名
+             在jQuery中，我们可以使用addClass()方法为元素添加类名。
+             语法:$().addClass("类名")
+             */
+            $("#btn").click(function () {
+                $("ul li:nth-child(odd)").addClass("myli");
+            });
+            /*删除类名
+             在jQuery中，我们可以使用removeClass()为元素删除类名。
+             语法： $().removeClass("类名")
+             */
+            $("#remove").click(function(){
+                $("ul li:nth-child(odd)").removeClass("myli");
+            });
+            /*
+             切换类名
+             语法：$().toggleClass("类名")
+             说明：toggleClass()方法用于检查元素是否具有某个类名。如果类名不存在，
+             则为该元素添加类名；如果类名已存在，则为该元素删除类名。
+             */
+            $("#add").click(function(){
+                $("ul li:nth-child(odd)").toggleClass("myli");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+        <li>ASP.NET</li>
+    </ul>
+    <input id="btn" type="button" value="添加" />
+    <input id="remove" type="button" value="删除" />
+    <input id="add" type="button" value="切换" />
+
+</body>
+</html>

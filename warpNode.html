@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         在jQuery中，如果我们想要将某个节点用其他标签包裹起来，共有3种方法：
+         （1）wrap()；
+         （2）wrapAll()；
+         （3）wrapInner()；
+         一、wrap()
+         wrap()方法表示将所选元素使用某个标签包裹起来。
+         语法：$(A).wrap(B)
+         说明：
+         $(A).wrap(B)表示将A元素使用B元素包裹起来。
+         */
+        $(function(){
+            $("#btn").click(function () {
+                $("strong").wrap("<em></em>")
+            });
+            /*
+             wrapAll()跟wrap()这两种方法的作用是不等价的。
+             wrap()方法是将所有元素进行单独的包裹，
+             但是wrapAll()会将所有匹配的元素用一个元素来包裹！。
+             */
+            $("#btn1").click(function () {
+                $("p").wrapAll('<div style="background-color: orange"></div>')
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li><strong>HTML</strong></li>
+        <li><strong>CSS</strong></li>
+        <li><strong>JavaScript</strong></li>
+        <li><strong>jQuery</strong></li>
+        <li><strong>canvas</strong></li>
+    </ul>
+    <input id="btn" type="button" value="wrap包裹"/>
+    <p>绿叶学习网</p>
+    <p>绿叶学习网</p>
+    <p>绿叶学习网</p>
+    <input id="btn1" type="button" value="wrapAll包裹" />
+
+</body>
+</html>

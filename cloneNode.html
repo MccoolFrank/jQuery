@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制节点</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            /*
+             在jQuery中，如果我们想要复制某个节点，可以使用clone()方法。
+             语法： $(A).clone()
+             说明：
+             其中clone()方法有一个布尔参数，默认值为false。
+             $(A).clone()表示仅仅将A节点复制，但不复制A节点所绑定的事件。
+             $(A).clone(true)表示将A节点复制，并且复制A节点所绑定的事件。
+             */
+            $("#ul1 li").click(function () {
+                var txt=$(this).text();
+                alert(txt);
+            });
+            $("#btn").click(function () {
+                var $li=$("#ul1 li:eq(3)").clone(true);
+                $("#ul1").append($li);
+            });
+            /*
+             在jQuery中，如果我们想要替换节点，有2种方法：
+             （1）replaceWith()；
+             （2）replaceAll()；
+             一、replaceWith()
+             replaceWith()方法可以将所选元素被替换成其他元素。
+             语法：$(A).replaceWith(B)
+             说明：
+             $(A).replaceWith(B)表示用B来替换A。
+
+             replaceAll()跟replaceWith()相似，作用都是用来替换节点的。不过这两者的“使用方式”是颠倒操作。
+             语法： $(A).replaceAll(B)
+             说明：
+             $(A).replaceAll(B)表示用A来替换B。
+             */
+            $("#btn1").click(function () {
+                $("strong").replaceWith('<a href="http://www.baidu.com" target="_blank">百度</a>');
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+        <li>canvas</li>
+    </ul>
+    <input id="btn" type="button" value="clone复制" />
+    <ul>
+        <li><strong>HTML</strong></li>
+        <li><strong>CSS</strong></li>
+        <li><strong>JavaScript</strong></li>
+        <li><strong>jQuery</strong></li>
+        <li><strong>canvas</strong></li>
+    </ul>
+    <input id="btn1" type="button" value="replaceWith替换"/>
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入节点</title>
+    <style type="text/css">
+        p{
+            background-color: greenyellow;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         在jQuery中，常见插入节点的方法共有4组：
+         （1）append()和appendTo()；
+         （2）prepend()和prependTo()；
+         （3）before()和insertBefore()；
+         （4）after()和insertAfter()；
+         这4组插入节点的方法都有所不同，其中（1）和（2）是“内部插入节点”，
+         （3）和（4）是“外部插入节点”。下面我们一一给大家介绍。
+         */
+
+
+        $(function () {
+            /*
+             一、append()和appendTo()
+             1、append()
+             append()表示向所选元素内部的“末尾”插入内容。
+             语法： $(A).append(B)
+             说明：$(A).append(B)表示在A内部的“末尾”插入B。
+             2.appendTo()
+             appendTo()跟append()类似，作用都是在所选元素内部的“末尾”插入内容。但是两者的“使用方式”却是颠倒操作。
+             语法：$(A).appendTo(B)
+             说明：$(A).appendTo(B)表示将A插入B内部的“末尾”。
+             */
+            $("#btn").click(function () {
+                var $strong="<strong>jquery基础</strong>";
+                $("p").append($strong);
+                $($strong).appendTo("p");
+            });
+            /*
+             二、prepend()和prependTo()
+             1、prepend()
+             prepend()表示向所选元素内部的“开始”插入节点。
+             语法： $(A).prepend(B)
+             说明：$(A).prepend(B)表示在A内部的“开始”插入B。
+             */
+            $("#btn1").click(function () {
+                var $strong="<strong>前面jquery基础</strong>";
+                $("p").prepend($strong);
+            });
+
+            /*
+             before()和insertBefore()
+             1、before()
+             before()表示在所选元素外部“之前”插入节点。
+             语法：$(A).before(B)
+             说明：$(A).before(B)表示在A外部“之前”插入B。
+
+             1、after()
+             after()表示在所选元素外部“之后”插入节点。
+             语法：$(A).after(B)
+             说明：$(A).after(B)表示在A外部“之后”插入B。
+             */
+            $("#btn2").click(function () {
+                var $strong="<strong>前面jquery基础</strong>";
+                $("p").before($strong);
+                $("p").after($strong);
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <p>练习网页</p>
+    <input id="btn" type="button" value="append插入"/>
+    <input id="btn1" type="button" value="prepend插入"/>
+    <input id="btn2" type="button" value="before插入"/>
+</body>
+</html>
