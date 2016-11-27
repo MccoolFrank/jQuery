@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <style type="text/css">
+        #simple,#sum,#lvye
+        {
+            display:inline-block;   /*将块元素转换为行内块元素*/
+            width:30px;
+            height:30px;
+            border:1px solid orange;
+            background-color:#FFE7B7;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery.color.js"></script>
+    <script type="text/javascript">
+        /*
+         一、简单动画
+         在jQuery中，对于自定义动画，我们可以使用animate()方法来实现。
+         jQuery动画其实就是通过将元素的某一个属性从“一个属性值”在指定时间内平滑地过渡到“另外一个属性值”来实现动画效果（大家仔细理解这句话，就能很深刻地理解jQuery动画的本质，非常重要）。jQuery动画原理跟CSS3动画原理是一样的。对于CSS3动画，可以关注我们的CSS3教程。
+
+         语法：
+         $().animate(params , speed , callback)
+         说明：
+         params，必选参数，表示“属性:值”列表，也就是元素在动画中变化的属性列表（具体形式，参考下面几个例子）；
+         speed，可选参数，表示动画的速度，单位为毫秒，默认值为200毫秒。如果参数省略，则采用默认速度；
+         callback，可选参数，表示动画完成之后执行的函数（即回调函数）。
+         */
+        $(function () {
+            $("#btn-simple").click(function () {
+                $("#simple").animate({ "width": "100px", "height": "100px" }, 1000);
+            });
+            $("#btn-sum").click(function () {
+                $("#sum").animate({ "width": "+=100px", "height": "+=100px" }, 1000);
+            });
+
+            /*
+             队列动画
+             在jQuery中，队列动画指的是在元素中按照一定的顺序执行多个动画效果，即有多个animate()方法在元素中执行，然后根据这些animate()方法执行的先后顺序，形成了动画队列，然后按照这个动画队列的顺序来进行显示。这个跟我们在饭堂排队打饭是一样的道理……
+             语法：
+             $().animate().animte()…….animte()
+             说明：
+             队列动画，就是按照animate()方法调用的先后顺序来实现的
+             */
+            $("#lvye").click(function () {
+                $(this).animate({"width":"100px"},1000).animate({"height":"100px"},1000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="simple"></div>
+    <input id="btn-simple" type="button" value="简单动画" /><br />
+    <div id="sum"></div>
+    <input id="btn-sum" type="button" value="累加动画" /><br>
+    <div id="lvye"></div>
+</body>
+</html>

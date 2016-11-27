@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单事件</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            /*
+             在jQuery中，常用的表单事件有4种：
+             （1）focus()事件；
+             （2）blur()事件；
+             （3）change()事件；
+             （4）select()事件；
+
+             一、focus()和blur()
+             focus表示获取焦点触发的事件,blur表示失去焦点触发的事件。
+             具有获得焦点和失去焦点事件的元素有3个（一定要记住啊）：
+             （1）单行文本框text；
+             （2）多行文本框textarea；
+             （3）下拉列表select；
+             */
+            var txt=$("#search").val();
+            $("#search").focus(function () {
+                if($(this).val()==txt)
+                {
+                    $(this).val("");
+                }
+            });
+            $("#search").blur(function () {
+                if($(this).val()==""){
+                    $(this).val(txt);
+                }
+
+            });
+            /*
+             二、change()
+             在jQuery中，当用户在单行文本框text和多行文本框textarea输入文本时，
+             由于文本框内字符串的改变将会触发onchange事件。
+             此外，在下拉列表select中一个选项的状态改变后也会触发onchange事件。
+
+             具有获得onchange事件的元素有3个：
+             （1）单行文本框text；
+             （2）多行文本框textarea；
+             （3）下拉列表select；
+             */
+            $("#txt").change(function () {
+                var num=$(this).val().length;
+                $("#num").text(num);
+            })
+        })
+    </script>
+</head>
+<body>
+    <input id="search" type="text" value="百度一下你就知道"/><input  id="btn" type="button" value="搜索">
+    <br>
+    <textarea id="txt" rows="5" cols="20"></textarea><br>
+    输入字符长度为：<span id="num"></span>
+
+</body>
+</html>

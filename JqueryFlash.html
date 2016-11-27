@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery动画</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         在jQuery中，如果我们想要实现元素的显示和隐藏，可以使用2组方法：
+         （1）show()和hide()；
+         （2）toggle()；
+
+         二、toggle()方法
+         在jQuery中，我们还可以使用toggle()方法来“切换”元素的“显示状态”。也就是说，如果元素是显示状态，则变成隐藏状态；如果元素是隐藏状态，则变成显示状态。
+         使用toggle()来显示和隐藏元素，也有2种使用方式：（1）简单的toggle()；（2）动画的toggle()。
+         语法：
+         $().toggle()                     //简单的toggle()
+         $().toggle(speed , callback);    //动画的toggle()
+         说明：
+         参数speed表示动画执行的速度，单位是毫秒；
+         参数callback为可选参数（可以省略），表示动画执行完成之后的“回调函数”。
+         */
+        $(function () {
+            $("#btn_hid").click(function () {
+                $("img").hide(500);
+            });
+            $("#btn_show").click(function () {
+                $("img").show(500);
+            });
+            $("#btn_tog").click(function () {
+                $("img").toggle(500);
+            });
+
+            /*
+             在jQuery中，如果我们想要实现元素的淡入淡出这种渐变效果，有3组方法：
+             （1）fadeIn()和fadeOut()；
+             （2）fadeToggle()；
+             （3）fadeTo()；
+             淡入和淡出效果，本质上其实都是通过改变元素的“透明度”（opacity属性）来实现的。
+             一、fadeIn()和fadeOut()
+             在jQuery中，我们可以使用fadeIn()方法来实现元素的淡入效果，使用fadeOut()方法来实现元素的淡出效果。
+             fadeIn()和fadeOut()这2个方法都是配合使用的。
+             语法：
+             $().fadeIn(speed , callback)
+             $().fadeOut(speed , callback)
+             说明：
+             speed为可选参数，表示动画执行的速度，单位为毫秒，默认为200毫秒。如果speed参数省略，则采用默认速度。
+             callback为可选参数，表示动画执行完成之后的回调函数。
+             */
+            $("#btn_out").click(function () {
+                $("img").fadeOut(500);
+            });
+            $("#btn_in").click(function () {
+                $("img").fadeIn(500);
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <img src="images/jquery.PNG"/><br>
+    <input type="button" id="btn_hid" value="隐藏">
+    <input type="button" id="btn_show" value="显示"><br>
+    <input type="button" id="btn_tog" value="切换"><br>
+    <input id="btn_out" type="button" value="淡出" />
+    <input id="btn_in" type="button" value="淡入" />
+
+</body>
+</html>

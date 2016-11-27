@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画的停止</title>
+    <style type="text/css">
+        #lvye
+        {
+            display:inline-block;   /*将块元素转换为行内块元素*/
+            width:50px;
+            height:50px;
+            border:1px solid orange;
+            background-color:#FFE7B7;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery.color.js"></script>
+    <script type="text/javascript">
+        /*
+         在jQuery中，很多时候我们需要停止当前元素上正在执行的动画效果，可以使用stop()方法来实现。
+         语法：
+         $().stop(clearQueue,gotoEnd)
+         说明：
+         参数clearQueue和参数gotoEnd都是可选参数，取值都为布尔值。两个参数默认值都为false。
+         参数clearQueue表示是否要清空“未执行”的“动画队列”。这里大家要看准了，清空的是整个“动画队列”，而不仅仅是某一个动画。
+         参数gotoEnd，表示是否直接将正在执行的动画跳转到末状态。
+         默认情况下，没有参数值的stop()方法只会停止“当前正在执行”的动画。如果你使用animate()方法为当前元素设置了A、B、C这3个动画。如果当前正在执行的动画是A，则只会停止动画A的执行，不会阻止B和C的执行。如果我们想停止所有的动画，可以使用设置参数clearQueue为true来实现。
+         jQuery stop()方法
+         参数取值	                        说明
+         stop()	等价于stop(false,false)，   仅仅停止“当前执行”这段动画，后面的动画还可以继续执行
+         stop(true)	等价于stop(true,false)  停止所有动画，包括当前执行的动画
+         stop(true,true)	               停止所有动画，但是允许执行当前动画
+         stop(false,true)	               停止“当前执行”这段动画，然后调到最后一个动画，并且执行最后一个动画
+         */
+        $(function () {
+            $("#btn-start").click(function () {
+                $("#lvye").animate({ "width": "200px" }, 3000).animate({ "background-color": "red" }, 3000).animate({ "height": "200px" }, 3000).animate({ "background-color": "blue" }, 3000);
+            });
+            $("#btn-stop").click(function () {
+                $("#lvye").stop();
+            })
+        })
+    </script>
+</head>
+<body>
+    <input id="btn-start" type="button" value="开始" />
+    <input id="btn-stop" type="button" value="停止" /><br />
+    <div id="lvye"></div>
+</body>
+</html>

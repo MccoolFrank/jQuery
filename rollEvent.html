@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动事件</title>
+    <style type="text/css">
+        body
+        {
+            height: 1800px;
+        }
+        #back-to-top
+        {
+            position:fixed;
+            right:50px;
+            bottom:50px;
+            display:none; /*设置默认情况下元素为隐藏状态*/
+            width:40px;
+            height:40px;
+            color:white;
+            background-color:#45B823;
+            font-family:微软雅黑;
+            font-size:15px;
+            font-weight:bold;
+            text-align:center;
+            cursor:pointer;
+        }
+    </style>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         语法：$().scroll(fn)
+         说明：
+         参数fn表示事件处理函数，也就是function(){}。
+         scroll()滚动事件常常和scrollTop()和scrollLeft()这两个方法结合使用。
+         */
+        //实现回到顶部特效
+
+        $(function () {
+            /*根据滚动距离判断按钮是否显示或隐藏*/
+            $(window).scroll(function () {
+                if($(this).scrollTop()>300)
+                {
+                    $("#back-to-top").css("display","inline-block");
+                }
+                else
+                {
+                    $("#back-to-top").css("display","none");
+                }
+            });
+            $("#back-to-top").click(function () {
+                $("html,body").scrollTop(0);
+            })
+        })
+    </script>
+</head>
+<body>
+    这是顶部
+    <div id="back-to-top">回到顶部
+    </div>
+</body>
+</html>

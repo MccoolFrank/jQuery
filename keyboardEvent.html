@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript">
+        /*
+         在jQuery中，常用的键盘事件有3种：
+         （1）keypress事件； 按下键事件（只包含数字键）
+         （2）keydown事件；  按下键事件（包含数字和功能键）
+         （3）keyup事件；    放开建事件（包含数字和功能键）
+         */
+        $(function () {
+            //event.which用于获取按下了哪个键或按钮，返回的是某个键的ASCII码。String.fromCharCode()方法表示将ASCII码转换为字符。
+            $(window).keypress(function (event) {
+                document.write("你按下的是："+String.fromCharCode(event.which));
+            });
+
+            $("#txt").keyup(function () {
+                var txt=$(this).val().toString();
+                $("#num").text(txt.length);
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <input id="txt" type="text"/>
+    <div>字符串长度为：<span id="num">0</span></div>
+</body>
+</html>
